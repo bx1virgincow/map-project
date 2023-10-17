@@ -5,7 +5,7 @@ import 'package:mapproject/bloc/bloc/map_bloc.dart';
 import '../../models/map.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   TextEditingController lngController = TextEditingController();
 
   //function to add markers
-  void _addMarkers(BuildContext context) {
+  void _addMarkers() {
     showModalBottomSheet(
         context: context,
         builder: (context) => SingleChildScrollView(
@@ -98,8 +98,6 @@ class _HomePageState extends State<HomePage> {
                                   context
                                       .read<MapBloc>()
                                       .add(AddMap(data: data));
-
-                                  print(data);
                                 },
                                 child: const Text('Add'),
                               ),
@@ -182,10 +180,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  right: 10,
+                  right: 5,
                   bottom: 100,
                   child: FloatingActionButton(
-                    onPressed: () => _addMarkers(context),
+                    onPressed: () => _addMarkers(),
                     child: const Icon(Icons.add),
                   ),
                 ),

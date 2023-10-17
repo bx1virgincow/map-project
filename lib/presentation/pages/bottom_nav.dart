@@ -12,7 +12,10 @@ class BottomNav extends StatefulWidget {
 class _BottomNavState extends State<BottomNav> {
   int _currentIndex = 0;
 
-  static final List<Widget> _pages = <Widget>[HomePage(), const MapList()];
+  static final List<Widget> _pages = <Widget>[
+    const HomePage(),
+    const MapList()
+  ];
 
   @override
   Widget build(BuildContext context) {

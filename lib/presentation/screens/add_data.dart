@@ -6,12 +6,12 @@ import '../../bloc/bloc/map_bloc.dart';
 import '../../models/map.dart';
 
 class PostData extends StatelessWidget {
-  PostData(
-      {Key? key,
-      required this.areaNameController,
-      required this.latController,
-      required this.lngController})
-      : super(key: key);
+  PostData({
+    Key? key,
+    required this.areaNameController,
+    required this.latController,
+    required this.lngController,
+  }) : super(key: key);
 
   //controllers
   TextEditingController areaNameController = TextEditingController();
@@ -36,10 +36,7 @@ class PostData extends StatelessWidget {
               ),
               InkWell(
                   onTap: (() => Navigator.pop(context)),
-                  child: const Icon(
-                    Icons.close,
-                    size: 24,
-                  )),
+                  child: const Icon(Icons.close, size: 24)),
             ],
           ),
           const Divider(
@@ -103,8 +100,6 @@ class PostData extends StatelessWidget {
                     markers[areaNameController.text] = marker;
 
                     context.read<MapBloc>().add(AddMap(data: data));
-
-                    print(data);
                   },
                   child: const Text('Add'),
                 ),
